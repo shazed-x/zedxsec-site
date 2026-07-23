@@ -11,14 +11,24 @@ Marketing site + lightweight API for the zedxsec cybersecurity collective.
 
 ### Option 1 — one command (recommended)
 
-A single launcher boots **both** the backend and frontend. On first run it also
-creates the Python virtualenv, installs all dependencies, and copies `.env` for you.
+A single launcher boots **both** the backend and frontend:
 
 ```bash
 ./start.sh
 ```
 
 Then open http://localhost:5173. Press `Ctrl+C` once to stop both servers.
+
+On a fresh machine the script bootstraps everything for you — no manual setup:
+
+- **Auto-installs missing prerequisites** (Python 3 + venv, Node.js + npm) via the
+  system package manager. Supports `apt`, `dnf`/`yum`, `pacman`, `zypper`, `apk`,
+  and Homebrew (`brew`). It will use `sudo` when needed.
+- Creates the Python virtualenv and installs backend dependencies.
+- Runs `npm install` for the frontend.
+- Copies `backend/.env` from `.env.example`.
+
+Already-installed steps are skipped, so subsequent runs start in ~1 second.
 
 ### Option 2 — run each service manually
 
