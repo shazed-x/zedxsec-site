@@ -9,10 +9,23 @@ Marketing site + lightweight API for the zedxsec cybersecurity collective.
 
 ## Quick start
 
+### Option 1 — one command (recommended)
+
+A single launcher boots **both** the backend and frontend. On first run it also
+creates the Python virtualenv, installs all dependencies, and copies `.env` for you.
+
+```bash
+./start.sh
+```
+
+Then open http://localhost:5173. Press `Ctrl+C` once to stop both servers.
+
+### Option 2 — run each service manually
+
 In two terminals:
 
 ```bash
-# 1. Backend
+# 1. Backend  ->  http://localhost:8000
 cd backend
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
@@ -21,7 +34,7 @@ python main.py
 ```
 
 ```bash
-# 2. Frontend
+# 2. Frontend  ->  http://localhost:5173
 cd frontend
 npm install
 npm run dev
